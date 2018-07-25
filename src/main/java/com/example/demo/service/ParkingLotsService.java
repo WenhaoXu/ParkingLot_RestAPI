@@ -18,4 +18,10 @@ public class ParkingLotsService {
     public List<ParkingLotModel> getParkingLots() {
         return  dbService.getLotList();
     }
+
+    public ParkingLotModel addParkingLot(ParkingLotModel parkingLot) {
+        List<ParkingLotModel> lotModelList=dbService.getLotList();
+        lotModelList.add(parkingLot);
+        return  parkingLot;
+    }
 }
