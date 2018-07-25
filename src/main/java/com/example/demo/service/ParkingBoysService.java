@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.model.DbService;
 import com.example.demo.model.ParkingBoyModel;
+import com.example.demo.model.ParkingLotModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,22 @@ public class ParkingBoysService {
         List<ParkingBoyModel> list=dbService.getBoysList();
         list.add(parkingBoy);
         return parkingBoy;
+    }
+
+    public boolean deleteBoy(int id) {
+        List<ParkingBoyModel> list=dbService.getBoysList();
+        for(ParkingBoyModel parkingBoyModel:list){
+            if(parkingBoyModel.boyId==id){
+                list.remove(parkingBoyModel);
+             List<ParkingLotModel>list1=   dbService.getLotList();
+             for(ParkingLotModel parkingLotModel:list1){
+                 if(parkingLotModel.getParkingBoy().boyId==id){
+                     list1.remove(parkingLotModel);
+                 }
+             }
+             return true;
+            }
+        }
+        return false;
     }
 }

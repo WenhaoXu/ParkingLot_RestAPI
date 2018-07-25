@@ -43,4 +43,16 @@ public class ParkingLotsService {
         return false;
 
     }
+
+    public boolean deleteParkLot(int id) {
+      List<ParkingLotModel>lotList=  dbService.getLotList();
+      for(ParkingLotModel parkingLotModel:lotList){
+          if(parkingLotModel.lotId==id){
+            if(parkingLotModel.alive==parkingLotModel.size)  {
+              return   lotList.remove(parkingLotModel);
+            }
+          }
+      }
+      return  false;
+    }
 }

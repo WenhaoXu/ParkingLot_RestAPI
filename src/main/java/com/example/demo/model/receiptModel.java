@@ -7,6 +7,7 @@ public class receiptModel {
     public int receiptId;
     public  int carId;
     public  int boyId;
+    public  int lotId;
     public  String status;
 
     public int getReceiptId() {
@@ -23,5 +24,9 @@ public class receiptModel {
 
     public String getStatus() {
         return status;
+    }
+
+    public int getLotId() {
+        return lotId;
     }
 }

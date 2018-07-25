@@ -23,13 +23,18 @@ public class ReceiptControllor {
     return   receiptService.parkingCar(car.carId);
     }
 
+    @DeleteMapping("/ticket/{ticketId}")
+    public  boolean getCar(@PathVariable int ticketId){
+        return  receiptService.deleteReceipt(ticketId);
+    }
+
     @GetMapping("/order")
     public List<Order>  getAllOrders(@RequestParam String status){
           return   receiptService.getAllOrders(status);
     }
 
-
-
-
-
+    @PutMapping("/order/{boyId}")
+    public boolean robOrder(@PathVariable int boyId){
+        return receiptService.robOrder(boyId);
+    }
 }

@@ -28,8 +28,14 @@ public class ParkingLotsControllor {
         return  parkingLotsService.addParkingLot(parkingLot);
     }
 
-    @PutMapping("parkinglots/parkinglot/{id}/parkingboy/{boyid}")
+    @PutMapping("/parkinglots/parkinglot/{id}/parkingboy/{boyid}")
      public  boolean  giveBoyidToParkingLot(@PathVariable int id,@PathVariable int boyid){
         return parkingLotsService.giveBoyidToParkingLot(id,boyid);
     }
+
+    @DeleteMapping("/parkinglots/{id}")
+    public  boolean deleteParkLot(@PathVariable int id){
+        return  parkingLotsService.deleteParkLot(id);
+    }
+
 }
