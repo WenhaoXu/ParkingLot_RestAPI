@@ -20,4 +20,10 @@ public class ParkingBoysService {
 
         return  list;
     }
+
+    public ParkingBoyModel addParkingBoy(ParkingBoyModel parkingBoy) {
+        List<ParkingBoyModel> list=dbService.getBoysList();
+        list.add(parkingBoy);
+        return parkingBoy;
+    }
 }
