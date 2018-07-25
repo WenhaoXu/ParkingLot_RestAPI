@@ -34,9 +34,11 @@ public class ParkingBoysService {
             if(parkingBoyModel.boyId==id){
                 list.remove(parkingBoyModel);
              List<ParkingLotModel>list1=   dbService.getLotList();
-             for(ParkingLotModel parkingLotModel:list1){
-                 if(parkingLotModel.getParkingBoy().boyId==id){
-                     list1.remove(parkingLotModel);
+             if(list1.size()!=0){
+                 for(ParkingLotModel parkingLotModel:list1){
+                     if(parkingLotModel.getParkingBoy().boyId==id){
+                         list1.remove(parkingLotModel);
+                     }
                  }
              }
              return true;
